@@ -84,6 +84,22 @@ def getRandomizeBoard():
             board.append(column)
         return board
 
+def generateRevealedBoxesData(vel):
+    revealedBoxes=[]
+    for x in range(BOARDWIDTH):
+        revealedBoxes.append([val]*BOARDHEIGHT)
+    return revealedBoxes
+
+def drawBoard(board,revealed):
+    for boxx in range(BOARDWIDTH):
+        for boxy in range(BOARDHEIGHT):
+            left,top=leftTopCordsOfBox(boxx,boxy)
+            if not revealed[boxx][boxy]:
+                pygame.draw.rect(DISPLAYSURF,BOXCOLOR,(left,top,BOXSIZE,BOXSIZE))
+            else:
+
+
+
 
 def main():
     global FPSCLOCK,DISPLAYSURF
